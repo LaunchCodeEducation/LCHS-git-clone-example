@@ -61,8 +61,19 @@ def main():
     window.setup(600, 600, 50)
     options = ["Line Spirograph", "Square Spirograph", "Random Polygon Spirograph"]
 
-    choice = prompt_user(options)
-    print(choice)
+    still_going = True
+    while still_going:
+        choice = prompt_user(options)
+
+        if choice == 1:
+            spirograph(bob)
+        elif choice == 2:
+            multi_polygon_spirograph(bob)
+        else:
+            num_sides = random.randint(3, 10)
+            multi_polygon_spirograph(bob, 100, 150, num_sides)
+
+        still_going = input("Draw again (y/n)? ").lower() == 'y'
 
 if __name__ == "__main__":
     main()
