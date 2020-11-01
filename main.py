@@ -6,6 +6,22 @@ def turtle_setup():
     new_turtle.speed(0)
     return new_turtle
 
+def prompt_user(choices):
+    invalid_choice = True
+
+    print("Drawing Options:")
+    for index in range(len(choices)):
+        print(f"{index+1}) {choices[index]}")
+
+    while invalid_choice:
+        selection = input("Enter the number of your choice: ")
+        if not selection.isdigit() or int(selection) < 1 or int(selection) > len(choices):
+            print("Invalid entry.")
+        else:
+            invalid_choice = False
+
+    return int(selection)
+
 def move_turtle(trtl, x_pos, y_pos):
     trtl.penup()
     trtl.goto(x_pos, y_pos)
@@ -43,6 +59,10 @@ def main():
     bob = turtle_setup()
     window = turtle.Screen()
     window.setup(600, 600, 50)
+    options = ["Line Spirograph", "Square Spirograph", "Random Polygon Spirograph"]
+
+    choice = prompt_user(options)
+    print(choice)
 
 if __name__ == "__main__":
     main()
