@@ -17,6 +17,28 @@ def draw_reg_polygon(trtl, sides, length):
         trtl.forward(length)
         trtl.left(turn_angle)
 
+def spirograph(trtl, diameter=200, angle=170):
+    trtl.clear()
+    move_turtle(trtl, -diameter/2, 0)
+    trtl.color('red', 'yellow')
+    trtl.begin_fill()
+    for line in range(int(360/(180 - angle))):
+        trtl.forward(diameter)
+        trtl.left(angle)
+    trtl.end_fill()
+    trtl.hideturtle()
+
+def multi_polygon_spirograph(trtl, diameter=100, angle=170, sides=4):
+    trtl.clear()
+    move_turtle(trtl, 0, 0)
+    trtl.color('dark green', 'orchid')
+    trtl.begin_fill()
+    for shape in range(int(360/(180 - angle))):
+        draw_reg_polygon(trtl, sides, diameter)
+        trtl.left(angle)
+    trtl.end_fill()
+    trtl.hideturtle()
+
 def main():
     bob = turtle_setup()
     window = turtle.Screen()
