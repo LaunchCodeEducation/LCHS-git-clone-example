@@ -7,7 +7,7 @@ def turtle_setup(speed = 0):
     new_turtle.speed(speed)
     return new_turtle
 
-# Ask the user to select drawing choice and validate the entry.
+# Ask the user to select a drawing choice and then validate the entry.
 def prompt_user(choices):
     invalid_choice = True
 
@@ -50,8 +50,7 @@ def spirograph(trtl, diameter=200, angle=170):
     trtl.end_fill()
     trtl.hideturtle()
 
-# Draw a series of polygons sharing one corner, but rotated around a central
-# point.
+# Draw a series of polygons rotated around a shared corner.
 def multi_polygon_spirograph(trtl, diameter=100, angle=170, sides=4):
     trtl.clear()
     move_turtle(trtl, 0, 0)
@@ -75,7 +74,7 @@ def main():
         # Ask the user what shape to draw.
         choice = prompt_user(options)
 
-        # Call the proper function based on the user's choice.
+        # Call a drawing function based on the user's choice.
         if choice == 1:
             spirograph(bob)
         elif choice == 2:
